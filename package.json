@@ -1,0 +1,25 @@
+{
+  "name": "fastify-library-crud",
+  "version": "1.0.0",
+  "description": "Fastify + TypeScript CRUD for library resources",
+  "main": "dist/src/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/src/server.js"
+  },
+  "keywords": [
+    "fastify",
+    "typescript",
+    "crud"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "fastify": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}

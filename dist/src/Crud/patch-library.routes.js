@@ -1,0 +1,24 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.patchLibraryRoutes = patchLibraryRoutes;
+const library_schema_js_1 = require("../compliments/library.schema.js");
+const library_service_js_1 = require("../services/library.service.js");
+async function patchLibraryRoutes(fastify) {
+    fastify.patch("/libraries/:id", {
+        schema: {
+            params: library_schema_js_1.libraryParamsSchema,
+            body: library_schema_js_1.libraryUpdateSchema
+        }
+    }, async (request, reply) => {
+        const library = library_service_js_1.libraryService.update(request.params.id, request.body);
+        if (!library) {
+            return reply.code(404).send({
+                message: "Library topilmadi"
+            });
+        }
+        return {
+            message: "Library qisman yangilandi",
+            data: library
+        };
+    });
+}
