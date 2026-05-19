@@ -6,12 +6,12 @@ import {
 import {
   libraryParamsSchema,
   libraryUpdateSchema
-} from "../compliments/library.schema.js";
+} from "../compliments/library.schema";
 import {
   LibraryParams,
   UpdateLibraryBody
-} from "../compliments/library.types.js";
-import { libraryService } from "../services/library.service.js";
+} from "../compliments/library.types";
+import { libraryService } from "../services/library.service";
 
 export async function patchLibraryRoutes(fastify: FastifyInstance) {
   fastify.patch<{ Params: LibraryParams; Body: UpdateLibraryBody }>(

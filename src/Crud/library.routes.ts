@@ -1,9 +1,9 @@
 import { FastifyInstance } from "fastify";
-import { createLibraryRoutes } from "./create-library.routes.js";
-import { deleteLibraryRoutes } from "./delete-library.routes.js";
-import { getLibraryRoutes } from "./get-library.routes.js";
-import { patchLibraryRoutes } from "./patch-library.routes.js";
-import { putLibraryRoutes } from "./put-library.routes.js";
+import { createLibraryRoutes } from "./create-library.routes";
+import { deleteLibraryRoutes } from "./delete-library.routes";
+import { getLibraryRoutes } from "./get-library.routes";
+import { patchLibraryRoutes } from "./patch-library.routes";
+import { putLibraryRoutes } from "./put-library.routes";
 
 export async function libraryRoutes(fastify: FastifyInstance) {
   fastify.register(getLibraryRoutes);

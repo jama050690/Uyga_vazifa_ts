@@ -1,5 +1,5 @@
 import Fastify from "fastify";
-import { libraryRoutes } from "./Crud/library.routes.js";
+import { libraryRoutes } from "./Crud/library.routes";
 
 export function buildApp() {
   const app = Fastify({

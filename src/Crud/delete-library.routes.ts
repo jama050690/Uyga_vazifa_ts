@@ -3,9 +3,9 @@ import {
   FastifyReply,
   FastifyRequest
 } from "fastify";
-import { libraryParamsSchema } from "../compliments/library.schema.js";
-import { LibraryParams } from "../compliments/library.types.js";
-import { libraryService } from "../services/library.service.js";
+import { libraryParamsSchema } from "../compliments/library.schema";
+import { LibraryParams } from "../compliments/library.types";
+import { libraryService } from "../services/library.service";
 
 export async function deleteLibraryRoutes(fastify: FastifyInstance) {
   fastify.delete<{ Params: LibraryParams }>(

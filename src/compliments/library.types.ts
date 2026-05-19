@@ -1,4 +1,4 @@
-import { BookItem } from "../../db/index.js";
+import { BookItem } from "../../db";
 
 export interface Library {
   id: number;

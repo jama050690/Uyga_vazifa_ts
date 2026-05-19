@@ -1,9 +1,9 @@
-import { libraryBooks } from "../../db/index.js";
+import { libraryBooks } from "../../db";
 import {
   CreateLibraryBody,
   Library,
   UpdateLibraryBody
-} from "../compliments/library.types.js";
+} from "../compliments/library.types";
 
 const libraries: Library[] = [
   {
