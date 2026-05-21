@@ -31,8 +31,8 @@ export const libraryService = {
     return libraries;
   },
 
-  getById(id: number): Library | undefined {
-    return libraries.find((library) => library.id === id);
+  getByName(name: string): Library | undefined {
+    return libraries.find((library) => library.name === name);
   },
 
   create(payload: CreateLibraryBody): Library {
@@ -50,8 +50,8 @@ export const libraryService = {
     return library;
   },
 
-  update(id: number, payload: UpdateLibraryBody): Library | undefined {
-    const library = libraries.find((item) => item.id === id);
+  update(name: string, payload: UpdateLibraryBody): Library | undefined {
+    const library = libraries.find((item) => item.name === name);
 
     if (!library) {
       return undefined;
@@ -77,8 +77,8 @@ export const libraryService = {
     return library;
   },
 
-  remove(id: number): boolean {
-    const index = libraries.findIndex((library) => library.id === id);
+  remove(name: string): boolean {
+    const index = libraries.findIndex((library) => library.name === name);
 
     if (index === -1) {
       return false;
