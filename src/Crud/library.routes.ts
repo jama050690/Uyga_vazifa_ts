@@ -17,12 +17,12 @@ export async function libraryRoutes(fastify: FastifyInstance) {
     return reply.send({ message: "Library list", data: libraryService.getAll() });
   });
 
-  // GET /libraries/:id — bitta
+  // GET /libraries/:name — bitta
   fastify.get<{ Params: LibraryParams }>(
-    "/libraries/:id",
+    "/libraries/:name",
     { schema: { params: libraryParamsSchema } },
     async (req, reply): Promise<unknown> => {
-      const library = libraryService.getById(req.params.id);
+      const library = libraryService.getByName(req.params.name);
       if (!library) return reply.code(404).send({ message: "Library topilmadi" });
       return reply.send({ message: "Library topildi", data: library });
     }
@@ -38,34 +38,34 @@ export async function libraryRoutes(fastify: FastifyInstance) {
     }
   );
 
-  // PUT /libraries/:id — to'liq yangilash
+  // PUT /libraries/:name — to'liq yangilash
   fastify.put<{ Params: LibraryParams; Body: UpdateLibraryBody }>(
-    "/libraries/:id",
+    "/libraries/:name",
     { schema: { params: libraryParamsSchema, body: libraryUpdateSchema } },
     async (req, reply): Promise<unknown> => {
-      const library = libraryService.update(req.params.id, req.body);
+      const library = libraryService.update(req.params.name, req.body);
       if (!library) return reply.code(404).send({ message: "Library topilmadi" });
       return reply.code(200).send({ message: "Library yangilandi", data: library });
     }
   );
 
-  // PATCH /libraries/:id — qisman yangilash
+  // PATCH /libraries/:name — qisman yangilash
   fastify.patch<{ Params: LibraryParams; Body: UpdateLibraryBody }>(
-    "/libraries/:id",
+    "/libraries/:name",
     { schema: { params: libraryParamsSchema, body: libraryUpdateSchema } },
     async (req, reply): Promise<unknown> => {
-      const library = libraryService.update(req.params.id, req.body);
+      const library = libraryService.update(req.params.name, req.body);
       if (!library) return reply.code(404).send({ message: "Library topilmadi" });
       return reply.code(200).send({ message: "Library qisman yangilandi", data: library });
     }
   );
 
-  // DELETE /libraries/:id — o'chirish
+  // DELETE /libraries/:name — o'chirish
   fastify.delete<{ Params: LibraryParams }>(
-    "/libraries/:id",
+    "/libraries/:name",
     { schema: { params: libraryParamsSchema } },
     async (req, reply): Promise<unknown> => {
-      const removed = libraryService.remove(req.params.id);
+      const removed = libraryService.remove(req.params.name);
       if (!removed) return reply.code(404).send({ message: "Library topilmadi" });
       return reply.code(200).send({ message: "Library o'chirildi" });
     }
