@@ -41,8 +41,8 @@ export const libraryUpdateSchema = {
 
 export const libraryParamsSchema = {
   type: "object",
-  required: ["id"],
+  required: ["name"],
   properties: {
-    id: { type: "number" }
+    name: { type: "string", minLength: 2 }
   }
 } as const;

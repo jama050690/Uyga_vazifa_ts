@@ -16,13 +16,8 @@ export interface CreateLibraryBody {
   isOpen?: boolean;
 }
 
-export interface UpdateLibraryBody {
-  name?: string;
-  address?: string;
-  books?: BookItem[];
-  isOpen?: boolean;
-}
+export type UpdateLibraryBody = Partial<Omit<Library, 'id' | 'booksCount'>>
 
 export interface LibraryParams {
-  id: number;
+  name: string;
 }
