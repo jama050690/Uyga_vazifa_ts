@@ -1,18 +1,12 @@
 import Fastify from "fastify";
-import { libraryRoutes } from "./Crud/library.routes";
+import { bookRoutes } from "./Crud/book.routes";
 
 export function buildApp() {
-  const app = Fastify({
-    logger: true
-  });
+  const app = Fastify({ logger: true });
 
-  app.get("/", async () => {
-    return {
-      message: "Fastify Library CRUD API"
-    };
-  });
+  app.get("/", async () => ({ message: "Fastify Book CRUD API" }));
 
-  app.register(libraryRoutes, { prefix: "/api" });
+  app.register(bookRoutes, { prefix: "/api" });
 
   return app;
 }
